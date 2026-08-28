@@ -1,7 +1,7 @@
 import { SectionEyebrow } from "../components/SectionEyebrow";
 
 const facts: [string, string][] = [
-  ["Localização", "Taquara, RJ"],
+  ["Localização", "Rio de Janeiro"],
   ["Formação", "Engenharia da Computação · UVA"],
   ["Atual", "Estagiário de TI · PROCON-RJ"],
 ];
