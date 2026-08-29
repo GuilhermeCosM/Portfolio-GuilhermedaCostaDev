@@ -26,87 +26,105 @@ export function Projetos() {
                   <ViaDot filled />
                 </div>
 
-                <div className="rounded-lg overflow-hidden bg-surface border border-border transition-transform hover:-translate-y-0.5">
-                  
-                  {/* IMAGEM */}
-                  {p.image && (
-                    p.url ? (
-                      <a
-                        href={p.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="block overflow-hidden cursor-pointer"
-                        aria-label={`Ver ${p.title}`}
-                      >
+                {/* CARD INTEIRO CLICÁVEL */}
+                {p.url ? (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block rounded-lg overflow-hidden bg-surface border border-border transition-all duration-300 hover:-translate-y-0.5 hover:border-muted cursor-pointer"
+                    aria-label={`Ver ${p.title}`}
+                  >
+                    {/* IMAGEM */}
+                    {p.image && (
+                      <div className="overflow-hidden">
                         <img
                           src={p.image}
                           alt={`Captura de tela do projeto ${p.title}`}
                           className="w-full h-auto block border-b border-border transition-transform duration-500 ease-out hover:scale-105"
                         />
-                      </a>
-                    ) : (
-                      <img
-                        src={p.image}
-                        alt={`Captura de tela do projeto ${p.title}`}
-                        className="w-full h-auto block border-b border-border transition-transform duration-500 ease-out hover:scale-105"
-                      />
-                    )
-                  )}
+                      </div>
+                    )}
 
-                  <div className="p-6">
-                    <div className="flex items-center justify-between gap-3 mb-2">
-                      
-                      <div className="font-mono text-[11px] uppercase tracking-wider text-cyan">
-                        {p.tag}
+                    <div className="p-6">
+                      <div className="flex items-center justify-between gap-3 mb-2">
+                        <div className="font-mono text-[11px] uppercase tracking-wider text-cyan">
+                          {p.tag}
+                        </div>
+
+                        {/* ÍCONE */}
+                        <ExternalLink
+                          size={15}
+                          className="text-muted hover:text-copper transition-colors shrink-0"
+                        />
                       </div>
 
-                      {/* ÍCONE DO LINK */}
-                      {p.url && (
-                        <a
-                          href={p.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="text-muted hover:text-copper transition-colors shrink-0"
-                          aria-label={`Ver ${p.title} no GitHub`}
-                        >
-                          <ExternalLink size={15} />
-                        </a>
-                      )}
-                    </div>
+                      {/* TÍTULO */}
+                      <h3 className="font-mono text-lg font-semibold mb-2">
+                        {p.title}
+                      </h3>
 
-                    <h3 className="font-mono text-lg font-semibold mb-2">
-                      {p.title}
-                    </h3>
-
-                    {/* DESCRIÇÃO CLICÁVEL */}
-                    {p.url ? (
-                      <a
-                        href={p.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="block text-sm leading-relaxed mb-4 text-muted hover:text-foreground transition-colors cursor-pointer"
-                      >
-                        {p.desc}
-                      </a>
-                    ) : (
+                      {/* DESCRIÇÃO */}
                       <p className="text-sm leading-relaxed mb-4 text-muted">
                         {p.desc}
                       </p>
+
+                      {/* TECNOLOGIAS */}
+                      <div className="flex flex-wrap gap-2">
+                        {p.stack.map((s) => (
+                          <span
+                            key={s}
+                            className="font-mono text-xs px-2.5 py-1 rounded bg-surface-alt text-muted border border-border"
+                          >
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </a>
+                ) : (
+                  /* CARD SEM LINK */
+                  <div className="rounded-lg overflow-hidden bg-surface border border-border">
+                    {/* IMAGEM */}
+                    {p.image && (
+                      <img
+                        src={p.image}
+                        alt={`Captura de tela do projeto ${p.title}`}
+                        className="w-full h-auto block border-b border-border"
+                      />
                     )}
 
-                    {/* TECNOLOGIAS */}
-                    <div className="flex flex-wrap gap-2">
-                      {p.stack.map((s) => (
-                        <span
-                          key={s}
-                          className="font-mono text-xs px-2.5 py-1 rounded bg-surface-alt text-muted border border-border"
-                        >
-                          {s}
-                        </span>
-                      ))}
+                    <div className="p-6">
+                      <div className="flex items-center justify-between gap-3 mb-2">
+                        <div className="font-mono text-[11px] uppercase tracking-wider text-cyan">
+                          {p.tag}
+                        </div>
+                      </div>
+
+                      {/* TÍTULO */}
+                      <h3 className="font-mono text-lg font-semibold mb-2">
+                        {p.title}
+                      </h3>
+
+                      {/* DESCRIÇÃO */}
+                      <p className="text-sm leading-relaxed mb-4 text-muted">
+                        {p.desc}
+                      </p>
+
+                      {/* TECNOLOGIAS */}
+                      <div className="flex flex-wrap gap-2">
+                        {p.stack.map((s) => (
+                          <span
+                            key={s}
+                            className="font-mono text-xs px-2.5 py-1 rounded bg-surface-alt text-muted border border-border"
+                          >
+                            {s}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             ))}
           </div>
