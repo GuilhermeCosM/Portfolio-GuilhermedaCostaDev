@@ -6,6 +6,7 @@ export const projects: Project[] = [
     title: "Device Register PROCON-RJ - SEDCON",
     desc: "Sistema de inventário e gestão de dispositivos construído para a equipe SEDCON. Autenticação via Spring Security, sessão gerenciada no frontend, interface com shadcn/ui.",
     stack: ["Spring Boot", "React", "TypeScript", "PostgreSQL", "shadcn/ui"],
+    url: "https://github.com/GuilhermeCosM/DEVICE-REGISTER-PROCON-RJ-SEDCON",
     image: "/projects/device-register-sedcon.png",
   },
   {
@@ -21,6 +22,7 @@ export const projects: Project[] = [
     title: "Financial Manager",
     desc: "Aplicação web de finanças pessoais com sistema de login, modelagem de usuários e transações, e dashboard com projeções financeiras. Ambiente containerizado com Docker.",
     stack: ["FastAPI", "React", "Vite", "PostgreSQL", "Docker"],
+    url: "https://github.com/GuilhermeCosM/Financial-Manager",
     image: "/projects/financial-manager.png",
   },
 ];
