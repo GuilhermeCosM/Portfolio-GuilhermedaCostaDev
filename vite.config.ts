@@ -1,8 +1,12 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 
-export default defineConfig(({ mode }) => ({
-  // GitHub Pages serves this project from /<repository-name>/.
-  base: mode === "production" ? "/Portfolio-GuilhermedaCostaDev/" : "/",
-  plugins: [react()],
-}));
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, ".", "VITE_");
+
+  return {
+    // Netlify serves from /; GitHub Pages sets VITE_BASE_PATH in its workflow.
+    base: env.VITE_BASE_PATH || "/",
+    plugins: [react()],
+  };
+});
