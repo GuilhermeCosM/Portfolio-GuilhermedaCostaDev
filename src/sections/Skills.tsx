@@ -12,7 +12,7 @@ export function Skills() {
             <SectionEyebrow>Skills</SectionEyebrow>
           </div>
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-ink">
-            Stack que eu uso
+            Tecnologias que eu uso
           </h2>
         </Reveal>
 
