@@ -25,8 +25,9 @@ export function Nav({ active, onNavigate }: NavProps) {
   };
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 px-6 pt-5 sm:px-8 lg:px-10" aria-label="Navegação principal">
-      <div className="relative flex w-full items-center justify-between border-b border-white/10 pb-4">
+    <nav className="fixed inset-x-0 top-0 z-50 pt-5" aria-label="Navegação principal">
+      <div className="relative flex w-full items-center justify-between px-6 pb-4 sm:px-8 lg:px-10">
+        <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-accent/60 via-white/10 to-accent/60" />
         <div className="flex items-center gap-2 sm:gap-3">
           <button onClick={() => navigate("projetos")} className="rounded-full border border-white/10 px-5 py-2.5 text-sm text-white/85 transition hover:border-white/30 hover:text-white sm:text-base">
             Projetos <span className="ml-1 text-accent">+</span>
@@ -37,9 +38,9 @@ export function Nav({ active, onNavigate }: NavProps) {
         </div>
 
         <button onClick={() => navigate("inicio")} className="absolute left-1/2 -translate-x-1/2 text-center" aria-label="Ir para o início">
-          <span className="flex items-center gap-2.5">
+          <span className="flex items-center gap-0 sm:gap-2.5">
             <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" className="h-8 w-8 object-contain sm:h-9 sm:w-9" />
-            <span className="text-left">
+            <span className="hidden text-left sm:block">
               <span className="block font-sans text-xl font-medium tracking-[0.18em] text-white sm:text-2xl">GUILHERME</span>
               <span className="hidden text-[10px] tracking-[0.24em] text-white/50 sm:block">COSTA DE MELO</span>
             </span>
