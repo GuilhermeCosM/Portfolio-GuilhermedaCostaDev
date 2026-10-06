@@ -1,15 +1,14 @@
 import { useState } from "react";
+import { Check, Copy, Github, Linkedin, Mail } from "lucide-react";
 import { SectionEyebrow } from "../components/SectionEyebrow";
-import { Check, Copy, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Reveal } from "../components/Reveal";
 
 const EMAIL = "guicostademelo3@gmail.com";
-const PHONE_DISPLAY = "(21) 98806-6989";
 const GITHUB_URL = "https://github.com/guilhermecosm";
 const LINKEDIN_URL = "https://www.linkedin.com/in/guilhermecostamelo/";
 
 export function Contato() {
   const [copied, setCopied] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
 
   function handleCopy() {
     navigator.clipboard?.writeText(EMAIL);
@@ -17,37 +16,27 @@ export function Contato() {
     setTimeout(() => setCopied(false), 1600);
   }
 
-  function handleCopyPhone() {
-    navigator.clipboard?.writeText(PHONE_DISPLAY);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 1600);
-  }
-
   return (
-    <section id="contato" className="px-6 py-24 border-t border-border">
-      <div className="max-w-3xl mx-auto text-center">
-        <SectionEyebrow>contato</SectionEyebrow>
-        <h2 className="font-mono text-2xl md:text-3xl font-semibold mb-4">Entre em contato</h2>
+    <section id="contato" className="px-6 py-28 border-t border-border">
+      <Reveal className="max-w-2xl mx-auto text-center">
+        <div className="flex justify-center">
+          <SectionEyebrow>Contato</SectionEyebrow>
+        </div>
+        <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-tight text-ink">
+          Vamos conversar
+        </h2>
         <p className="text-base mb-10 max-w-md mx-auto text-muted">
           Aberto a novas oportunidades e projetos. Me chama por e-mail ou nas redes abaixo.
         </p>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+        <div className="flex justify-center mb-8">
           <button
             onClick={handleCopy}
-            className="font-mono flex items-center gap-2 px-5 py-3 rounded-md text-sm bg-surface border border-border"
+            className="flex items-center gap-2 px-5 py-3 rounded-full text-sm bg-surface border border-border text-ink"
           >
-            <Mail size={15} className="text-copper" />
+            <Mail size={15} className="text-accent" />
             {EMAIL}
-            {copied ? <Check size={14} className="text-cyan" /> : <Copy size={14} className="text-muted" />}
-          </button>
-          <button
-            onClick={handleCopyPhone}
-            className="font-mono flex items-center gap-2 px-5 py-3 rounded-md text-sm bg-surface border border-border"
-          >
-            <Phone size={15} className="text-copper" />
-            {PHONE_DISPLAY}
-            {copiedPhone ? <Check size={14} className="text-cyan" /> : <Copy size={14} className="text-muted" />}
+            {copied ? <Check size={14} className="text-accent" /> : <Copy size={14} className="text-muted" />}
           </button>
         </div>
 
@@ -56,7 +45,7 @@ export function Contato() {
             href={GITHUB_URL}
             target="_blank"
             rel="noreferrer"
-            className="p-3 rounded-md border border-border hover:border-cyan transition-colors"
+            className="p-3 rounded-full border border-border text-ink hover:border-accent transition-colors"
           >
             <Github size={18} />
           </a>
@@ -64,12 +53,12 @@ export function Contato() {
             href={LINKEDIN_URL}
             target="_blank"
             rel="noreferrer"
-            className="p-3 rounded-md border border-border hover:border-cyan transition-colors"
+            className="p-3 rounded-full border border-border text-ink hover:border-accent transition-colors"
           >
             <Linkedin size={18} />
           </a>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

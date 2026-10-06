@@ -1,134 +1,53 @@
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SectionEyebrow } from "../components/SectionEyebrow";
-import { ViaDot } from "../components/ViaDot";
+import { Reveal } from "../components/Reveal";
 import { projects } from "../data/projects";
 
 export function Projetos() {
   return (
-    <section
-      id="projetos"
-      className="px-6 py-24 border-t border-border bg-surface-alt"
-    >
-      <div className="max-w-3xl mx-auto">
-        <SectionEyebrow>projetos</SectionEyebrow>
+    <section id="projetos" className="mx-auto max-w-6xl px-6 py-14 lg:px-10 lg:py-20">
+      <SectionEyebrow>Projetos selecionados</SectionEyebrow>
+      <div className="mb-10 mt-5 flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <h1 className="text-4xl font-bold tracking-tight text-ink md:text-6xl">O que eu construí</h1>
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-muted">Sistemas criados para necessidades concretas, com atenção aos detalhes e a quem usa.</p>
+        </div>
+        <span className="text-sm font-medium text-muted">3 projetos</span>
+      </div>
 
-        <h2 className="font-mono text-2xl md:text-3xl font-semibold mb-10">
-          O que eu construí
-        </h2>
-
-        <div className="relative">
-          <div className="absolute left-[5px] top-2 bottom-2 w-px bg-border" />
-
-          <div className="flex flex-col gap-10">
-            {projects.map((p) => (
-              <div key={p.title} className="relative pl-8">
-                <div className="absolute left-0 top-1.5">
-                  <ViaDot filled />
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+        {projects.map((project, index) => (
+          <Reveal key={project.title} delay={index * 80}>
+            <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-ink/10">
+              {project.image && (
+                <div className="aspect-video overflow-hidden bg-surface-alt">
+                  <img
+                    src={project.image}
+                    alt={`Captura de tela do projeto ${project.title}`}
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
                 </div>
-
-                {/* CARD INTEIRO CLICÁVEL */}
-                {p.url ? (
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block rounded-lg overflow-hidden bg-surface border border-border transition-all duration-300 hover:-translate-y-0.5 hover:border-muted cursor-pointer"
-                    aria-label={`Ver ${p.title}`}
-                  >
-                    {/* IMAGEM */}
-                    {p.image && (
-                      <div className="overflow-hidden">
-                        <img
-                          src={p.image}
-                          alt={`Captura de tela do projeto ${p.title}`}
-                          className="w-full h-auto block border-b border-border transition-transform duration-500 ease-out hover:scale-105"
-                        />
-                      </div>
-                    )}
-
-                    <div className="p-6">
-                      <div className="flex items-center justify-between gap-3 mb-2">
-                        <div className="font-mono text-[11px] uppercase tracking-wider text-cyan">
-                          {p.tag}
-                        </div>
-
-                        {/* ÍCONE */}
-                        <ExternalLink
-                          size={15}
-                          className="text-muted hover:text-copper transition-colors shrink-0"
-                        />
-                      </div>
-
-                      {/* TÍTULO */}
-                      <h3 className="font-mono text-lg font-semibold mb-2">
-                        {p.title}
-                      </h3>
-
-                      {/* DESCRIÇÃO */}
-                      <p className="text-sm leading-relaxed mb-4 text-muted">
-                        {p.desc}
-                      </p>
-
-                      {/* TECNOLOGIAS */}
-                      <div className="flex flex-wrap gap-2">
-                        {p.stack.map((s) => (
-                          <span
-                            key={s}
-                            className="font-mono text-xs px-2.5 py-1 rounded bg-surface-alt text-muted border border-border"
-                          >
-                            {s}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+              )}
+              <div className="flex flex-1 flex-col p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">{project.tag}</p>
+                <h2 className="mt-3 text-xl font-semibold text-ink">{project.title}</h2>
+                <p className="mt-3 min-h-24 text-sm leading-7 text-muted">{project.desc}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.stack.map((item) => (
+                    <span key={item} className="rounded-full border border-border bg-surface-alt px-3 py-1.5 text-xs font-medium text-ink">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                {project.url && (
+                  <a href={project.url} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-semibold text-accent hover:underline">
+                    Abrir projeto <ArrowUpRight size={15} />
                   </a>
-                ) : (
-                  /* CARD SEM LINK */
-                  <div className="rounded-lg overflow-hidden bg-surface border border-border">
-                    {/* IMAGEM */}
-                    {p.image && (
-                      <img
-                        src={p.image}
-                        alt={`Captura de tela do projeto ${p.title}`}
-                        className="w-full h-auto block border-b border-border"
-                      />
-                    )}
-
-                    <div className="p-6">
-                      <div className="flex items-center justify-between gap-3 mb-2">
-                        <div className="font-mono text-[11px] uppercase tracking-wider text-cyan">
-                          {p.tag}
-                        </div>
-                      </div>
-
-                      {/* TÍTULO */}
-                      <h3 className="font-mono text-lg font-semibold mb-2">
-                        {p.title}
-                      </h3>
-
-                      {/* DESCRIÇÃO */}
-                      <p className="text-sm leading-relaxed mb-4 text-muted">
-                        {p.desc}
-                      </p>
-
-                      {/* TECNOLOGIAS */}
-                      <div className="flex flex-wrap gap-2">
-                        {p.stack.map((s) => (
-                          <span
-                            key={s}
-                            className="font-mono text-xs px-2.5 py-1 rounded bg-surface-alt text-muted border border-border"
-                          >
-                            {s}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
                 )}
               </div>
-            ))}
-          </div>
-        </div>
+            </article>
+          </Reveal>
+        ))}
       </div>
     </section>
   );

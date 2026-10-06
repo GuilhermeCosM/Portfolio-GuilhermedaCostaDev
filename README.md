@@ -1,41 +1,18 @@
-# Portfolio
+# Guilherme — Portfólio Dark Tech
 
-Personal portfolio site — dark tech / terminal aesthetic. Built with React, TypeScript, Vite, and Tailwind CSS.
+Portfólio pessoal em React, TypeScript, Vite e Tailwind CSS.
 
-## Structure
+## Iniciar
 
-```
-src/
-  components/     Reusable UI pieces (Nav, SectionEyebrow, ViaDot)
-  sections/       One file per page section (Hero, Sobre, Projetos, Skills, Formacao, Contato, Footer)
-  data/           Content as data (projects, skills, boot sequence lines) — edit here, not in components
-  hooks/          useTypewriter (hero terminal animation)
-  types.ts        Shared TypeScript interfaces
-  App.tsx         Composes all sections
-  main.tsx        React entry point
-```
+1. Instale o Node.js LTS.
+2. Nesta pasta, rode `npm install`.
+3. Rode `npm run dev` e abra a URL local apresentada pelo Vite.
 
-## Getting started
+## O que inclui
 
-```bash
-npm install
-npm run dev
-```
-
-Open http://localhost:5173.
-
-## Before deploying
-
-- Update the email and social links in `src/sections/Contato.tsx`
-- Edit your projects in `src/data/projects.ts`
-- Edit your skills in `src/data/skills.ts`
-- Edit the terminal boot lines in `src/data/bootLines.ts`
-
-## Build
-
-```bash
-npm run build
-npm run preview
-```
-
-Deploy the `dist/` folder to Vercel, Netlify, or GitHub Pages.
+- Seis telas independentes com navegação superior.
+- Capa editorial dark inspirada no template de referência.
+- Painel de Prompt do Windows com comandos digitados e saídas carregadas em sequência.
+- Página Sobre com retrato e páginas de Projetos, Habilidades, Trajetória e Contato.
+- Imagens dos três projetos e competências mobile, incluindo React Native e Expo Go.
+- Currículo em `public/curriculo.pdf`.

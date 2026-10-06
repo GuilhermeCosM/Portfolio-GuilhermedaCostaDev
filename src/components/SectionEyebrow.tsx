@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 
 export function SectionEyebrow({ children }: { children: ReactNode }) {
   return (
-    <div className="font-mono text-xs tracking-[0.25em] uppercase mb-3 flex items-center gap-2 text-cyan">
-      <span className="text-copper">//</span>
+    <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full border border-border bg-surface text-xs uppercase tracking-wider text-muted">
+      <span className="w-1.5 h-1.5 rounded-full bg-accent" />
       {children}
     </div>
   );

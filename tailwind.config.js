@@ -4,24 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: "#0B0E14",
-        surface: "#12161F",
-        "surface-alt": "#171C27",
-        border: "#232A3A",
-        ink: "#E7EAF0",
-        muted: "#8891A5",
-        copper: "#FF8A4C",
-        cyan: "#5EEAD4",
+        bg: "#08090D",
+        surface: "#11131A",
+        "surface-alt": "#171A23",
+        border: "#292D38",
+        ink: "#F4F5F8",
+        muted: "#9A9EAA",
+        accent: "#75D9E8",
       },
       fontFamily: {
-        mono: ["'JetBrains Mono'", "ui-monospace", "'Fira Code'", "monospace"],
         sans: ["'Inter'", "ui-sans-serif", "system-ui", "sans-serif"],
       },
-      backgroundImage: {
-        "dot-grid": "radial-gradient(#232A3A 1px, transparent 1px)",
-      },
-      backgroundSize: {
-        "dot-grid": "26px 26px",
+      boxShadow: {
+        glow: "0 18px 70px rgba(111, 93, 230, 0.18)",
       },
     },
   },

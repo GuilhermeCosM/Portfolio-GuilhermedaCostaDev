@@ -3,15 +3,126 @@
 @tailwind utilities;
 
 html {
-  scroll-behavior: smooth;
+  background: #08090d;
+  color-scheme: dark;
 }
 
 body {
-  background-color: #0b0e14;
-  color: #e7eaf0;
+  background-color: #08090d;
+  color: #f4f5f8;
+  min-width: 320px;
 }
 
 ::selection {
-  background: #ff8a4c;
-  color: #0b0e14;
+  background: #75d9e8;
+  color: #08090d;
+}
+
+.screen-enter {
+  animation: screen-enter 420ms cubic-bezier(.2,.75,.25,1) both;
+}
+
+.hero-title {
+  font-size: clamp(3.5rem, 10.1vw, 9.2rem);
+  line-height: .82;
+  letter-spacing: -.075em;
+}
+
+.hero-glow {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 9999px;
+  filter: blur(100px);
+}
+
+.hero-glow-one {
+  left: -7rem;
+  top: 20%;
+  width: 24rem;
+  height: 24rem;
+  background: rgba(70, 190, 214, .13);
+}
+
+.hero-glow-two {
+  right: 5%;
+  bottom: 10%;
+  width: 17rem;
+  height: 17rem;
+  background: rgba(52, 145, 178, .09);
+}
+
+.terminal-backdrop {
+  position: absolute;
+  z-index: 1;
+  left: 2%;
+  top: 25%;
+  width: min(64%, 820px);
+  height: 390px;
+  overflow: hidden;
+  border: 1px solid rgba(220, 224, 239, .13);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(17, 19, 26, .5), rgba(8, 9, 13, .08));
+  color: rgba(239, 241, 248, .68);
+  font-family: "Cascadia Code", "Consolas", "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  opacity: .42;
+  transform: perspective(900px) rotateY(8deg) rotateZ(-2deg);
+  transform-origin: left center;
+  mask-image: linear-gradient(90deg, #000 55%, transparent 100%), linear-gradient(0deg, transparent 0%, #000 14%, #000 82%, transparent 100%);
+  mask-composite: intersect;
+  pointer-events: none;
+}
+
+.terminal-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 38px;
+  border-bottom: 1px solid rgba(220, 224, 239, .1);
+  padding: 0 14px;
+  color: rgba(239, 241, 248, .46);
+  font-size: 10px;
+  letter-spacing: .03em;
+}
+
+.terminal-controls { display: flex; gap: 5px; }
+.terminal-controls i { width: 7px; height: 7px; border-radius: 50%; background: rgba(239, 241, 248, .3); }
+.terminal-path { margin-left: auto; color: rgba(239, 241, 248, .3); }
+.terminal-body { padding: 14px 17px; }
+.terminal-entry { margin-bottom: 10px; }
+.terminal-prompt { color: #75aaff; }
+.terminal-command { color: #75aaff; }
+.terminal-output { color: rgba(180, 208, 255, .64); }
+.terminal-current { min-height: 21px; }
+.terminal-caret { display: inline-block; width: 7px; height: 14px; margin-left: 4px; transform: translateY(2px); background: #75aaff; animation: terminal-caret 1s steps(2, start) infinite; }
+
+@keyframes terminal-caret { to { visibility: hidden; } }
+
+@keyframes screen-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title { font-size: clamp(3.45rem, 15vw, 6rem); }
+  .terminal-backdrop { left: 0; top: 21%; width: 92%; height: 320px; font-size: 10px; opacity: .25; transform: rotate(-2deg); }
+  .terminal-path { display: none; }
 }

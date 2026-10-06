@@ -5,8 +5,8 @@ interface ViaDotProps {
 export function ViaDot({ filled = false }: ViaDotProps) {
   return (
     <span
-      className={`inline-block w-2.5 h-2.5 rounded-full shrink-0 border-2 ${
-        filled ? "bg-copper border-copper" : "bg-transparent border-border"
+      className={`inline-block w-2.5 h-2.5 rounded-full shrink-0 ${
+        filled ? "bg-accent" : "bg-transparent border-2 border-border"
       }`}
     />
   );

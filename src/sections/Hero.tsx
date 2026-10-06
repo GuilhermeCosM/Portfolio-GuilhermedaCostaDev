@@ -1,100 +1,59 @@
-import { useEffect, useRef, useState } from "react";
-import { SectionEyebrow } from "../components/SectionEyebrow";
-import { useTypewriter } from "../hooks/useTypewriter";
-import { bootLines } from "../data/bootLines";
-import { ChevronRight, Download, Terminal } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import type { ScreenId } from "../components/Nav";
+import { TerminalBackdrop } from "../components/TerminalBackdrop";
 
-export function Hero() {
-  const heroRef = useRef<HTMLElement>(null);
-  const [active, setActive] = useState(true);
-  const typed = useTypewriter(bootLines, active);
+interface HeroProps {
+  onNavigate: (screen: ScreenId) => void;
+}
 
-  useEffect(() => {
-    const obs = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setActive(true);
-    });
-    if (heroRef.current) obs.observe(heroRef.current);
-    return () => obs.disconnect();
-  }, []);
-
-  function scrollTo(id: string) {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  }
-
+export function Hero({ onNavigate }: HeroProps) {
   return (
-    <section
-      ref={heroRef}
-      id="hero"
-      className="relative pt-40 pb-28 px-6 overflow-hidden bg-dot-grid bg-[length:26px_26px] bg-[-10px_-10px]"
-    >
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_260px] gap-12 items-start">
-        <div>
-          <SectionEyebrow>desenvolvedor full stack</SectionEyebrow>
-          <h1 className="font-mono text-5xl md:text-6xl font-semibold leading-[1.05] mb-6 tracking-tight">
-            Guilherme da Costa de Melo
-          </h1>
-          <p className="text-lg md:text-xl mb-10 max-w-xl text-muted">
-            Construo sistemas que sustentam produtos reais — do backend em Spring Boot e Angular
-            às interfaces em React, aplicados no dia a dia como estagiário de TI no PROCON-RJ.
-          </p>
+    <section className="relative isolate mx-auto flex min-h-[calc(100svh-6rem)] max-w-[1600px] items-center overflow-hidden px-5 pb-16 pt-14 sm:px-8 lg:px-14">
+      <div className="hero-glow hero-glow-one" />
+      <div className="hero-glow hero-glow-two" />
+      <TerminalBackdrop />
 
-          <div className="flex flex-wrap gap-3 mb-14">
-            <button
-              onClick={() => scrollTo("projetos")}
-              className="font-mono px-5 py-2.5 text-sm font-medium rounded-md flex items-center gap-2 bg-copper text-bg transition-transform hover:-translate-y-0.5"
-            >
-              Ver projetos <ChevronRight size={15} />
-            </button>
-            <button
-              onClick={() => scrollTo("contato")}
-              className="font-mono px-5 py-2.5 text-sm font-medium rounded-md border border-border hover:border-cyan transition-colors"
-            >
-              Contato
-            </button>
-            <a
-              href="/curriculo.pdf"
-              download="Curriculo DEV Guilherme da Costa de Melo.pdf"
-              className="font-mono px-5 py-2.5 text-sm font-medium rounded-md border border-border hover:border-cyan transition-colors flex items-center gap-2"
-            >
-              Baixar Currículo <Download size={15} />
-            </a>
+      <div className="relative z-10 ml-auto w-full max-w-[940px] pb-12 pt-24 text-right sm:pt-16">
+        <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.28em] text-white/45 sm:text-xs">
+          Desenvolvedor full stack <span className="mx-2 text-accent">·</span> Jacarepaguá, Rio de Janeiro
+        </p>
+
+        <h1 className="hero-title font-sans font-medium uppercase text-white">
+          <span className="block">Criando</span>
+          <span className="block">Sistemas</span>
+          <span className="block text-white/80">Digitais</span>
+        </h1>
+
+        <div className="ml-auto mb-7 mt-8 grid w-full max-w-[560px] grid-cols-[1fr_auto_1fr] items-center gap-5 sm:gap-8">
+          <div className="text-center">
+            <p className="font-sans text-[1.65rem] font-medium tracking-tight text-white sm:text-3xl">PROCON-RJ<span className="text-accent">.</span></p>
+            <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-white/45 sm:text-xs">Estágio de TI</p>
           </div>
-
-          {/* Terminal panel */}
-          <div className="rounded-lg overflow-hidden bg-surface border border-border">
-            <div className="flex items-center gap-2 px-4 py-2.5 text-xs text-muted border-b border-border font-mono">
-              <Terminal size={13} />
-              boot.sh
-            </div>
-            <div className="p-5 text-sm leading-relaxed min-h-[168px] font-mono">
-              {typed.map((line, i) => (
-                <div key={i} className="mb-2.5">
-                  <div>
-                    <span className="text-cyan">{line.prompt}</span>
-                    {i === typed.length - 1 && !line.showOutput && (
-                      <span className="inline-block w-2 h-4 ml-0.5 align-middle bg-cyan animate-pulse" />
-                    )}
-                  </div>
-                  {line.showOutput && <div className="pl-4 text-muted">{line.output}</div>}
-                </div>
-              ))}
-            </div>
+          <span className="h-11 w-px bg-white/15" />
+          <div className="text-center">
+            <p className="font-sans text-[1.65rem] font-medium tracking-tight text-white sm:text-3xl">UVA<span className="text-accent">.</span></p>
+            <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-white/45 sm:text-xs">Engenharia da Computação</p>
           </div>
         </div>
 
-        {/* Profile photo */}
-        <div className="relative mx-auto md:mx-0 w-full max-w-[260px]">
-          <div className="absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-copper" />
-          <div className="absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-cyan" />
-          <div className="rounded-lg overflow-hidden border border-border bg-surface">
-            <img
-              src="/profile.jpg"
-              alt="Guilherme da Costa de Melo"
-              className="w-full aspect-[3/4] object-cover grayscale-[15%] contrast-[1.05]"
-            />
-          </div>
+        <div className="flex flex-wrap items-center justify-end gap-3">
+          <button onClick={() => onNavigate("projetos")} className="group inline-flex h-14 items-center gap-5 rounded-full bg-white pl-6 pr-2 text-sm font-medium text-[#0A0B10] transition hover:-translate-y-0.5 hover:bg-[#E4FAFD]">
+            Ver meus projetos
+            <span className="grid h-10 w-10 place-items-center rounded-full bg-[#0A0B10] text-white transition group-hover:bg-[#247D8B]"><ArrowRight size={17} /></span>
+          </button>
+          <button onClick={() => onNavigate("sobre")} className="rounded-full border border-white/15 px-6 py-4 text-sm text-white/70 transition hover:border-white/40 hover:text-white">
+            Sobre mim
+          </button>
         </div>
+
+        <p className="mt-8 text-[10px] uppercase tracking-[0.22em] text-white/35">Engenharia da Computação <span className="mx-2 text-accent">/</span> UVA</p>
       </div>
+
+      <div className="pointer-events-none absolute bottom-5 left-6 z-10 hidden items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-white/30 sm:flex lg:left-14">
+        <span className="h-px w-8 bg-white/25" />
+        Construindo soluções úteis
+      </div>
+      <div className="pointer-events-none absolute bottom-5 right-6 z-10 text-[10px] tracking-[0.2em] text-white/35 lg:right-14">01 <span className="mx-1 text-white/20">/</span> 06</div>
     </section>
   );
 }
