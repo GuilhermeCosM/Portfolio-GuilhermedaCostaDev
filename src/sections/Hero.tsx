@@ -14,7 +14,7 @@ export function Hero({ onNavigate }: HeroProps) {
       <TerminalBackdrop />
 
       <div className="relative z-10 ml-auto w-full max-w-[940px] pb-12 pt-24 text-right sm:pt-16">
-        <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.28em] text-white/45 sm:text-xs">
+        <p className="mb-6 text-xs font-medium uppercase tracking-[0.24em] text-white/55 sm:text-sm">
           Desenvolvedor full stack <span className="mx-2 text-accent">·</span> Jacarepaguá, Rio de Janeiro
         </p>
 
@@ -27,33 +27,33 @@ export function Hero({ onNavigate }: HeroProps) {
         <div className="ml-auto mb-7 mt-8 grid w-full max-w-[560px] grid-cols-[1fr_auto_1fr] items-center gap-5 sm:gap-8">
           <div className="text-center">
             <p className="font-sans text-[1.65rem] font-medium tracking-tight text-white sm:text-3xl">PROCON-RJ<span className="text-accent">.</span></p>
-            <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-white/45 sm:text-xs">Estágio de TI</p>
+            <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/55 sm:text-sm">Estágio de TI</p>
           </div>
           <span className="h-11 w-px bg-white/15" />
           <div className="text-center">
             <p className="font-sans text-[1.65rem] font-medium tracking-tight text-white sm:text-3xl">UVA<span className="text-accent">.</span></p>
-            <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-white/45 sm:text-xs">Engenharia da Computação</p>
+            <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/55 sm:text-sm">Engenharia da Computação</p>
           </div>
         </div>
 
         <div className="flex flex-wrap items-center justify-end gap-3">
-          <button onClick={() => onNavigate("projetos")} className="group inline-flex h-14 items-center gap-5 rounded-full bg-white pl-6 pr-2 text-sm font-medium text-[#0A0B10] transition hover:-translate-y-0.5 hover:bg-[#E4FAFD]">
+          <button onClick={() => onNavigate("projetos")} className="group inline-flex h-14 items-center gap-5 rounded-full bg-white pl-6 pr-2 text-base font-medium text-[#0A0B10] transition hover:-translate-y-0.5 hover:bg-[#E4FAFD]">
             Ver meus projetos
             <span className="grid h-10 w-10 place-items-center rounded-full bg-[#0A0B10] text-white transition group-hover:bg-[#247D8B]"><ArrowRight size={17} /></span>
           </button>
-          <button onClick={() => onNavigate("sobre")} className="rounded-full border border-white/15 px-6 py-4 text-sm text-white/70 transition hover:border-white/40 hover:text-white">
+          <button onClick={() => onNavigate("sobre")} className="rounded-full border border-white/15 px-6 py-4 text-base text-white/80 transition hover:border-white/40 hover:text-white">
             Sobre mim
           </button>
         </div>
 
-        <p className="mt-8 text-[10px] uppercase tracking-[0.22em] text-white/35">Engenharia da Computação <span className="mx-2 text-accent">/</span> UVA</p>
+        <p className="mt-8 text-xs uppercase tracking-[0.2em] text-white/50 sm:text-sm">Engenharia da Computação <span className="mx-2 text-accent">/</span> UVA</p>
       </div>
 
-      <div className="pointer-events-none absolute bottom-5 left-6 z-10 hidden items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-white/30 sm:flex lg:left-14">
+      <div className="pointer-events-none absolute bottom-5 left-6 z-10 hidden items-center gap-3 text-xs uppercase tracking-[0.18em] text-white/45 sm:flex lg:left-14">
         <span className="h-px w-8 bg-white/25" />
         Construindo soluções úteis
       </div>
-      <div className="pointer-events-none absolute bottom-5 right-6 z-10 text-[10px] tracking-[0.2em] text-white/35 lg:right-14">01 <span className="mx-1 text-white/20">/</span> 06</div>
+      <div className="pointer-events-none absolute bottom-5 right-6 z-10 text-xs tracking-[0.18em] text-white/45 lg:right-14">01 <span className="mx-1 text-white/30">/</span> 06</div>
     </section>
   );
 }

@@ -58,16 +58,16 @@ body {
   left: 2%;
   top: 25%;
   width: min(64%, 820px);
-  height: 390px;
+  height: 430px;
   overflow: hidden;
   border: 1px solid rgba(220, 224, 239, .13);
   border-radius: 18px;
   background: linear-gradient(135deg, rgba(17, 19, 26, .5), rgba(8, 9, 13, .08));
   color: rgba(239, 241, 248, .68);
   font-family: "Cascadia Code", "Consolas", "Courier New", monospace;
-  font-size: 12px;
-  line-height: 1.7;
-  opacity: .42;
+  font-size: 15px;
+  line-height: 1.75;
+  opacity: .58;
   transform: perspective(900px) rotateY(8deg) rotateZ(-2deg);
   transform-origin: left center;
   mask-image: linear-gradient(90deg, #000 55%, transparent 100%), linear-gradient(0deg, transparent 0%, #000 14%, #000 82%, transparent 100%);
@@ -79,11 +79,11 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  height: 38px;
+  height: 42px;
   border-bottom: 1px solid rgba(220, 224, 239, .1);
   padding: 0 14px;
   color: rgba(239, 241, 248, .46);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .03em;
 }
 
@@ -123,6 +123,6 @@ body {
 
 @media (max-width: 640px) {
   .hero-title { font-size: clamp(3.45rem, 15vw, 6rem); }
-  .terminal-backdrop { left: 0; top: 21%; width: 92%; height: 320px; font-size: 10px; opacity: .25; transform: rotate(-2deg); }
+  .terminal-backdrop { left: 0; top: 21%; width: 92%; height: 320px; font-size: 12px; opacity: .3; transform: rotate(-2deg); }
   .terminal-path { display: none; }
 }
