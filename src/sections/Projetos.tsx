@@ -5,7 +5,7 @@ import { projects } from "../data/projects";
 
 export function Projetos() {
   return (
-    <section id="projetos" className="mx-auto max-w-6xl px-6 py-14 lg:px-10 lg:py-20">
+    <section id="projetos" className="mx-auto max-w-6xl scroll-mt-28 px-6 pb-14 pt-32 lg:px-10 lg:pb-20 lg:pt-36">
       <SectionEyebrow>Projetos selecionados</SectionEyebrow>
       <div className="mb-10 mt-5 flex flex-wrap items-end justify-between gap-4">
         <div>

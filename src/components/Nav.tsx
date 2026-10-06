@@ -25,7 +25,7 @@ export function Nav({ active, onNavigate }: NavProps) {
   };
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 pt-5" aria-label="Navegação principal">
+    <nav className="fixed inset-x-0 top-0 z-50 bg-[#08090d]/95 pt-5 backdrop-blur-xl" aria-label="Navegação principal">
       <div className="relative flex w-full items-center justify-between px-6 pb-4 sm:px-8 lg:px-10">
         <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-accent/60 via-white/10 to-accent/60" />
         <div className="flex items-center gap-2 sm:gap-3">
