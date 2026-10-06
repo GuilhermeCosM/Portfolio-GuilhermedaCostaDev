@@ -55,9 +55,9 @@ body {
 .terminal-backdrop {
   position: absolute;
   z-index: 1;
-  left: -3rem;
+  left: 0;
   top: 19%;
-  width: min(68%, 1020px);
+  width: min(62%, 920px);
   height: 500px;
   overflow: hidden;
   border: 1px solid rgba(220, 224, 239, .13);
